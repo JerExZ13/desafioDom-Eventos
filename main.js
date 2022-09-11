@@ -1,5 +1,5 @@
-const productos = []
-const carrito = []
+let productos = []
+let carrito = []
 
 class Producto{
     constructor(id, nombre, precio, img, desc = ''){
@@ -27,6 +27,12 @@ class Producto{
         const container = document.getElementById('container')
         container.innerHTML += card
     }
+    agregarEvento(){
+        const btnAgregar = document.getElementById(this.id)
+        // console.log(btnAgregar)
+        const productoEncontrado = productos.find(product => product.id == this.id)
+        btnAgregar.addEventListener('click', () => agregarAlCarrito(productoEncontrado))
+    }
 }
 
 let prod1 = new Producto('001', 'Moka', 3000, './img/Postre1.jpg')
@@ -43,4 +49,15 @@ console.log(productos)
 productos.forEach(e => {
     e.desplegarProductos()
 })
+productos.forEach(e => {
+    e.agregarEvento()
+})
 
+function agregarAlCarrito(producto) {
+    const enCarrito = carrito.find(prod => prod.id == producto.id)
+    
+    if(!enCarrito){
+        carrito.push({...producto, cantidad: 1})
+    } 
+    console.log(carrito)
+}
