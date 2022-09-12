@@ -55,9 +55,18 @@ productos.forEach(e => {
 
 function agregarAlCarrito(producto) {
     const enCarrito = carrito.find(prod => prod.id == producto.id)
-    
+    console.log(enCarrito)
     if(!enCarrito){
         carrito.push({...producto, cantidad: 1})
-    } 
-    console.log(carrito)
+    } else {
+        const carritoFiltrado = carrito.filter(prod => prod.id != producto.id)
+        carrito = [...carritoFiltrado,{ ...enCarrito, cantidad: enCarrito.cantidad + 1}]
+        // console.log(carritoFiltrado)
+    }
+
+    contador.innerHTML = carrito.reduce((acc,prod) => acc + prod.cantidad, 0)
+    // console.log(carrito)
 }
+
+const contador = document.getElementById('cartCounter')
+contador.innerHTML = carrito.reduce((acc,prod) => acc + prod.cantidad, 0)
