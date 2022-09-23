@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Pasteleria Deppen - Carrito</title>
+</head>
+
+<body>
+    <nav>
+        <a id="back" href="../index.html">Volver atras</a>
+        <h1 class="titulo">PASTELERIA DEPPEN - CARRITO</h1>
+        <a class='cart' href="#">
+            <img class="cartIcon" src="../img/cart.png" alt="foto del carrito">
+            <span id="cartCounter"></span>
+        </a>
+    </nav>
+
+    <div class="containerCart">
+
+        <div id="containerProductsx">
+            <table>
+                <thead>
+                    <tr>
+                        <th>IMAGEN</th>
+                        <th>NOMBRE</th>
+                        <th>CANTIDAD</th>
+                        <th>PRECIO</th>
+                        <th>TOTAL</th>
+                        <th>ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+            <div class="alerta" id="cartAlerta">
+                <p>AGREGA PRODUCTOS A TU CARRITO</p>
+            </div>
+
+        </div>
+        <div id="resumen">
+            <p>TOTAL</p>
+            <p>$ <span id="total"></span> </p>
+
+            <button id="comprar">COMPRAR</button>
+        </div>
+    </div>
+
+    <script defer src="../main.js"></script>
+</body>
+
+</html>
